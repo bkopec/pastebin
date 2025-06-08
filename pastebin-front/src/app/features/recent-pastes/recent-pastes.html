@@ -1,0 +1,39 @@
+<div class="card recent-pastes-card">
+    <h2 class="text-center">Recent Pastes</h2>
+  
+    <div *ngIf="errorMessage()" class="message-box error">
+      {{ errorMessage() }}
+    </div>
+  
+    <div *ngIf="!recentPastesPage() && !errorMessage()" class="text-center loading-message">
+      Loading recent pastes...
+    </div>
+  
+    <div *ngIf="recentPastesPage() as pageData">
+      <ul class="paste-list" *ngIf="pageData.content.length > 0; else noPastes">
+        <li *ngFor="let paste of pageData.content; trackBy: trackById" class="paste-list-item">
+          <a [routerLink]="['/paste', paste.id]" class="paste-link">
+            <span class="paste-title">{{ paste.title }}</span>
+            <span class="paste-date">{{ paste.createdAt | date:'short' }}</span>
+          </a>
+        </li>
+      </ul>
+      <ng-template #noPastes>
+        <p class="text-center no-pastes-message">No pastes found yet. Be the first to create one!</p>
+      </ng-template>
+  
+      <div class="pagination-controls" *ngIf="pageData.totalPages > 1">
+        <button (click)="prevPage()" [disabled]="pageData.first">Previous</button>
+        <div class="page-numbers">
+          <button
+            *ngFor="let pageNum of getPageNumbers()"
+            (click)="goToPage(pageNum)"
+            [class.active]="pageNum === currentPage()"
+          >
+            {{ pageNum + 1 }}
+          </button>
+        </div>
+        <button (click)="nextPage()" [disabled]="pageData.last">Next</button>
+      </div>
+    </div>
+  </div>

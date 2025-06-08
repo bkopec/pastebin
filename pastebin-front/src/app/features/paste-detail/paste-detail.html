@@ -1,0 +1,23 @@
+<div class="card paste-detail-card">
+    <div *ngIf="errorMessage()" class="message-box error">
+      {{ errorMessage() }}
+    </div>
+  
+    <div *ngIf="paste()">
+      <h2>{{ paste()?.title }}</h2>
+      <div class="paste-meta">
+        <span class="paste-id">ID: {{ paste()?.id }}</span>
+        <span class="paste-date">Created: {{ paste()?.createdAt | date:'medium' }}</span>
+      </div>
+  
+      <div class="paste-content-wrapper">
+        <div class="line-numbers">
+          <span *ngFor="let line of pasteLines(); let i = index">{{ i + 1 }}</span>
+        </div>
+        <pre class="paste-content"><code [innerText]="paste()?.content"></code></pre>
+      </div>
+    </div>
+    <div *ngIf="!paste() && !errorMessage()" class="loading-message">
+      Loading paste...
+    </div>
+  </div>

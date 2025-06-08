@@ -1,0 +1,101 @@
+.recent-pastes-card h2 {
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+  }
+  
+  .paste-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 0;
+  }
+  
+  .paste-list-item {
+    background-color: #fcfcfc;
+    border: 1px solid #ecf0f1;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .paste-list-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .paste-list-item .paste-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 1.5rem;
+    text-decoration: none;
+    color: #34495e;
+  }
+  
+  .paste-list-item .paste-link .paste-title {
+    font-weight: 500;
+    font-size: 1.15rem;
+    flex-grow: 1;
+    margin-right: 1rem;
+    word-wrap: break-word;
+    white-space: normal;
+  }
+  
+  .paste-list-item .paste-link .paste-date {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    flex-shrink: 0; /* Prevent date from shrinking */
+  }
+  
+  .no-pastes-message {
+    font-style: italic;
+    color: #7f8c8d;
+    padding: 2rem;
+    border: 1px dashed #ced4da;
+    border-radius: 8px;
+    background-color: #fcfcfc;
+  }
+  
+  .pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #ecf0f1;
+  }
+  
+  .pagination-controls button {
+    background-color: #6c757d; /* Muted gray for pagination buttons */
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    min-width: 80px;
+  }
+  
+  .pagination-controls button:hover {
+    background-color: #5a6268;
+  }
+  
+  .pagination-controls button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .pagination-controls .page-numbers {
+    display: flex;
+    gap: 0.3rem;
+  }
+  
+  .pagination-controls .page-numbers button {
+    background-color: #bdc3c7; /* Lighter gray for page numbers */
+    padding: 0.6rem 0.9rem;
+    min-width: 40px; /* Ensure consistent width */
+  }
+  
+  .pagination-controls .page-numbers button.active {
+    background-color: #007bff; /* Active page number */
+    color: white;
+    font-weight: bold;
+  }
